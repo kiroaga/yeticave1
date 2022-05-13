@@ -10,9 +10,7 @@ $adv_info = [
     ["Name"=>'Куртка для сноуборда DC Mutiny Charocal',"Category"=>$category_ru[3], "Price"=>7500, "URL"=>'img/lot-5.jpg'],
     ["Name"=>'Маска Oakley Canopy',"Category"=>$category_ru[5], "Price"=>5400, "URL"=>'img/lot-6.jpg']
 ];
-//array("2014 Rossignol District Snowboard"=>array($category[0], 10999, 'img/lot-1.jpg'), "DC Ply Mens 2016/2017 Snowboard"=>array($category[0], 159999, 'img/lot-2.jpg'),
-   // "Крепления Union Contact Pro 2015 года размер L/XL"=>array($category[1], 8000, 'img/lot-3.jpg'), "Ботинки для сноуборда DC Mutiny Charocal"=>array($category[2], 10999, 'img/lot-4.jpg'),
-   // "Куртка для сноуборда DC Mutiny Charocal"=>array($category[3], 7500, 'img/lot-5.jpg'),"Маска Oakley Canopy"=>array($category[5], 5400, 'img/lot-6.jpg'));
+
 
 $user_name = 'Kirill'; // укажите здесь ваше имя
 ?>
@@ -87,6 +85,15 @@ $user_name = 'Kirill'; // укажите здесь ваше имя
         </div>
         <ul class="lots__list">
             <?php
+            function price ($price) {
+                $price = ceil($price);
+                if ($price >= 1000){
+                    $result = number_format($price, 0,'',' ');
+                }
+                else $result = $price;
+                return $result ." ₽";
+            }
+
             foreach ($adv_info as $adv) {
                 echo "<li class='lots__item lot'>
                         <div class='lot__image'>
@@ -98,7 +105,7 @@ $user_name = 'Kirill'; // укажите здесь ваше имя
                                  <div class='lot__state'>
                                       <div class='lot__rate'>
                                          <span class='lot__amount'>Стартовая цена</span>
-                                         <span class='lot__cost'>$adv[Price]<b class='rub'>р</b></span>
+                                         <span class='lot__cost'>".price($adv['Price'])."</span>
                                       </div>
                                         <div class='lot__timer timer'>
                                             12:23
