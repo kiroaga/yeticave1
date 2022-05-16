@@ -10,8 +10,14 @@ $adv_info = [
     ["Name"=>'Куртка для сноуборда DC Mutiny Charocal',"Category"=>$category_ru[3], "Price"=>7500, "URL"=>'img/lot-5.jpg'],
     ["Name"=>'Маска Oakley Canopy',"Category"=>$category_ru[5], "Price"=>5400, "URL"=>'img/lot-6.jpg']
 ];
-
-
+function interval (){
+    $date_now = strtotime("now");
+    $date_of_end = strtotime("today +1 day - 1 second - 3 hours");
+    $interval = $date_of_end-$date_now;
+    $date_format = date('H:i', $interval);
+    $result = $date_format;
+    return $result;
+}
 $user_name = 'Kirill'; // укажите здесь ваше имя
 ?>
 <!DOCTYPE html>
@@ -108,7 +114,7 @@ $user_name = 'Kirill'; // укажите здесь ваше имя
                                          <span class='lot__cost'>".price($adv['Price'])."</span>
                                       </div>
                                         <div class='lot__timer timer'>
-                                            12:23
+                                           ". interval() ."
                                         </div>
                                     </div>
                                  </div>
@@ -179,3 +185,6 @@ $user_name = 'Kirill'; // укажите здесь ваше имя
 <script src="script.js"></script>
 </body>
 </html>
+<script>
+
+</script>
