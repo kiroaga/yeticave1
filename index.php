@@ -1,5 +1,6 @@
 <?php
 require_once('functions.php');
+require_once('lots.php');
 
 $page_content = include_template('index.php', [
     'category_ru'=>$category_ru,
@@ -16,5 +17,6 @@ $layout_content = include_template('layout.php', [
 ]);
 
 print($layout_content);
+
 
 ?>

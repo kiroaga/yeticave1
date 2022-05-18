@@ -55,10 +55,10 @@
     <nav class="nav">
         <ul class="nav__list container">
             <?php
-            for ($i = 0; $i<count($category_ru); $i++)
+            foreach ($category_ru as $cat)
             {
                 echo "<li class='nav__item'>
-                        <a href='pages/all-lots.html'>$category_ru[$i]</a>
+                        <a href='pages/all-lots.html'>$cat[name]</a>
                       </li>";
             }
             ?>
