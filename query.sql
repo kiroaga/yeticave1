@@ -13,7 +13,10 @@ insert into lot(id_user, id_category,id_winner, create_date, name, description, 
 
 select * from category /*Запрос на выбор всех категорий*/
 
-select * from lot where id_winner is null order by create_date desc
+select lot.name, start_price, image, bet.amount as 'Последня ставка', count(bet.id_lot) as 'Количество ставок', category.name from lot inner join bet on bet.id_lot = lot.id_lot inner join category on
+category.id_category = lot.id_category where id_winner is null GROUP by lot.id_lot, lot.name, start_price, image, bet.amount order by create_date desc /*получить самые новые, открытые лоты. Каждый лот должен включать
+название, стартовую цену, ссылку на изображение, цену последней ставки,
+количество ставок, название категории;*/
 
 SELECT id_lot, lot.name as 'Лот' , category.name as 'Категория' FROM lot INNER JOIN category ON lot.id_category = category.id_category /*показать лот по его id. Получите также название категории, к которой принадлежит лот*/
 
@@ -21,4 +24,4 @@ UPDATE lot SET name = 'Теперь прикольная' where id_lot = 2 /*о�
 
 SELECT id_bet, bet.id_user as 'Пользователь',date as 'Дата ставки',amount as 'Сумма', lot.id_lot FROM bet INNER JOIN user ON bet.id_user = user.id_user INNER join lot on lot.id_lot = bet.id_lot WHERE DATE(date) = CURRENT_DATE order by id_bet desc;
 /*получить список самых свежих ставок для лота по его идентификатору;*/
-  
+
