@@ -1,6 +1,6 @@
 <?php
 require_once('functions.php');
-require_once('lots.php');
+require_once('data.php');
 
 $page_content = include_template('index.php', [
     'category_ru'=>$category_ru,

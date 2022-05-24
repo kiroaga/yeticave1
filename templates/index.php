@@ -29,7 +29,7 @@
                         </div>
                         <div class='lot__info'>
                         <span class='lot__category' name='lot_ctg'>$adv[cat]</span>
-                            <h3 class='lot__title'><a class='text-link' href='lot.php?$adv[id]'>$adv[lot]</a></h3>
+                            <h3 class='lot__title'><a class='text-link' href='lot.php?page=$adv[id]'>$adv[lot]</a></h3>
                                  <div class='lot__state'>
                                       <div class='lot__rate'>
                                          <span class='lot__amount'>Стартовая цена</span>
