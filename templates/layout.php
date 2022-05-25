@@ -46,7 +46,7 @@
             </nav>
         </div>
     </header>
-    <main class="container" >
+    <main class="container">
         <?=$page_content?>
     </main>
 </div>
