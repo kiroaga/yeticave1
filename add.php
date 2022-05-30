@@ -4,18 +4,26 @@ require_once('data.php');
 
 $error = array();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if ($_POST['lot-name'] && $_POST['message'] && $_FILES['image'] && $_POST['lot-rate'] && $_POST['lot-date'] && $_POST['lot-step']) {
-            $file = $_FILES['image']['name'];
-            $temp = $_FILES['image']['tmp_name'];
-            $type = $_FILES['image']['type'];
-            $path = __DIR__.'/img'.$file;
-                move_uploaded_file($temp, $path);
-                $query = 'INSERT INTO lot VALUES (1, $_POST[category], null, CURRENT_DATE, $_POST[lot_name], $_POST[message], $path, $_POST[lot_rate], $_POST[lot_date], $_POST[lot-step])';
+    if (!empty($_POST['lot-name']) && !empty($_POST['message']) && !empty($_FILES['image']['name']) && !empty($_POST['lot-rate']) && !empty($_POST['lot-date']) && !empty($_POST['lot-step'])) {
+                move_uploaded_file($_FILES['image']['tmp_name'], 'img/'.$_FILES['image']['name']);
+                $id_user = 1;
+                $id_category = $_POST['category'];
+                $name = $_POST['lot-name'];
+                $description = $_POST['message'];
+                $image = 'img/'.$_FILES['image']['name'];
+                $start_price = $_POST['lot-rate'];
+                $end_date = $_POST['lot-date'];
+                $step = $_POST['lot-step'];
+                $query = "INSERT INTO lot (id_user, id_category, id_winner, create_date, name, description, image, start_price, end_date, step) VALUES
+                (1, $id_category, null, now(), '$name', '$description', '$image', $start_price, '$end_date', $step)";
                 $result_add = mysqli_query($link, $query);
+                $query2 = 'SELECT id_lot from lot order by id_lot desc';
+                $result_id = mysqli_query($link, $query2);
+                $ID = $result_id->fetch_row()[0];
                 if ($result_add) {
-                    header('location:index.php');
+                    header('Location:lot.php?page='.$ID);
                 } else {
-                    header('location:index.php');
+
                 }
     } else{
         if (empty($_POST['lot-name']))

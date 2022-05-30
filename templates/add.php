@@ -25,7 +25,7 @@
     <div class="form__container-two">
         <div class="form__item <?echo in_array('1',$error) ? 'form__item--invalid':'' ?>">
             <label for="lot-name">Наименование <sup>*</sup></label>
-            <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота">
+            <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота" value="<?=@$_POST['lot-name']?>">
             <span class="form__error">Введите наименование лота</span>
         </div>
         <div class="form__item">
@@ -42,13 +42,13 @@
     </div>
     <div class="form__item form__item--wide <?echo in_array('2',$error) ? 'form__item--invalid':'' ?>">
         <label for="message">Описание <sup>*</sup></label>
-        <textarea id="message" name="message" placeholder="Напишите описание лота"></textarea>
+        <textarea id="message" name="message" placeholder="Напишите описание лота" ><?=@$_POST['message']?></textarea>
         <span class="form__error">Напишите описание лота</span>
     </div>
     <div class="form__item form__item--file">
         <label>Изображение <sup>*</sup></label>
         <div class="form__input-file">
-            <input class="visually-hidden" type="file" id="lot-img" value="" name="image">
+            <input class="visually-hidden" type="file" id="lot-img" value="<?=@$_FILES['image']['name']?>" name="image">
             <label for="lot-img">
                 Добавить
             </label>
@@ -57,17 +57,17 @@
     <div class="form__container-three">
         <div class="form__item form__item--small <?echo in_array('4',$error) ? 'form__item--invalid':'' ?>">
             <label for="lot-rate">Начальная цена <sup>*</sup></label>
-            <input id="lot-rate" type="number" name="lot-rate" placeholder="0">
+            <input id="lot-rate" type="number" name="lot-rate" placeholder="0" value="<?=@$_POST['lot-rate']?>">
             <span class="form__error">Введите начальную цену</span>
         </div>
         <div class="form__item form__item--small <?echo in_array('6',$error) ? 'form__item--invalid':'' ?>">
             <label for="lot-step">Шаг ставки <sup>*</sup></label>
-            <input id="lot-step" type="number" name="lot-step" placeholder="0">
+            <input id="lot-step" type="number" name="lot-step" placeholder="0" value="<?=@$_POST['lot-step']?>">
             <span class="form__error">Введите шаг ставки</span>
         </div>
         <div class="form__item <?echo in_array('5',$error) ? 'form__item--invalid':'' ?>">
             <label for="lot-date">Дата окончания торгов <sup>*</sup></label>
-            <input class="form__input-date" id="lot-date" type="text" name="lot-date" placeholder="Введите дату в формате ГГГГ-ММ-ДД">
+            <input class="form__input-date" id="lot-date" <?=@$_POST['lot-date']?> type="text" name="lot-date" placeholder="Введите дату в формате ГГГГ-ММ-ДД">
             <span class="form__error">Введите дату завершения торгов</span>
         </div>
     </div>
