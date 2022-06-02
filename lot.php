@@ -4,6 +4,7 @@ require_once('lot.php');
 require_once('data.php');
 
 
+
     if (is_numeric($_GET['page'])) {
         $query_adv = 'SELECT lot.id_lot as id, step, bet.amount as cost,lot.name as lot, category.name as cat, image as img,
 description from lot inner join category on lot.id_category = category.id_category inner join bet on lot.id_lot = bet.id_lot where lot.id_lot = ' . $_GET['page'];
@@ -22,15 +23,16 @@ description from lot inner join category on lot.id_category = category.id_catego
             $page_content = include_template('lot.php', [
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
-                'adv' => $adv]);
+                'adv' => $adv,
+                'user_id'=>$user_id,]);
 
             $layout_content = include_template('layout.php', [
                 'page_content' => $page_content,
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => $adv['lot'],
-                'is_auth' => $is_auth,
-                'user_name' => $user_name
+                'user_name' => $user_name,
+                'user_id'=>$user_id
             ]);
 
         } else {
@@ -40,8 +42,8 @@ description from lot inner join category on lot.id_category = category.id_catego
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => 'Главная страница',
-                'is_auth' => $is_auth,
-                'user_name' => $user_name]);
+                'user_name' => $user_name
+                ]);
         }
     } else {
         $page_content = include_template('404.php', []);
@@ -50,7 +52,6 @@ description from lot inner join category on lot.id_category = category.id_catego
             'category_ru' => $category_ru,
             'category_eng' => $category_eng,
             'title' => 'Главная страница',
-            'is_auth' => $is_auth,
             'user_name' => $user_name]);
     }
 

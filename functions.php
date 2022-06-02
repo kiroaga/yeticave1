@@ -1,5 +1,4 @@
 <?php
-$is_auth = rand(0, 1);
 $user_name = 'Kirill'; // укажите здесь ваше имя
 
 /*$category_ru = array('Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'); // Массив с категориями на русском*/
@@ -13,8 +12,6 @@ $adv_info = [
     ["Name"=>'Куртка для сноуборда DC Mutiny Charocal',"Category"=>$category_ru[3], "Price"=>7500, "URL"=>'img/lot-5.jpg'],
     ["Name"=>'Маска Oakley Canopy',"Category"=>$category_ru[5], "Price"=>5400, "URL"=>'img/lot-6.jpg']
 ];*/
-
-
 
 
 

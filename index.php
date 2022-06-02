@@ -12,8 +12,8 @@ $layout_content = include_template('layout.php', [
     'category_ru'=>$category_ru,
     'category_eng'=>$category_eng,
     'title' => 'Главная страница',
-    'is_auth'=>$is_auth,
-    'user_name' => $user_name
+    'user_name' => $user_name,
+    'user_id'=>$user_id
 ]);
 
 print($layout_content);
