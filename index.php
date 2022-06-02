@@ -12,7 +12,7 @@ $layout_content = include_template('layout.php', [
     'category_ru'=>$category_ru,
     'category_eng'=>$category_eng,
     'title' => 'Главная страница',
-    'user_name' => $user_name,
+    'user' => $user,
     'user_id'=>$user_id
 ]);
 

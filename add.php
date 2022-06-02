@@ -53,7 +53,6 @@ if (!empty($user_id)) {
         'category_ru' => $category_ru,
         'category_eng' => $category_eng,
         'title' => 'Добавить лот',
-        'user_name' => $user_name,
         'user_id'=>$user_id
     ]);
 }
@@ -67,7 +66,6 @@ else
         'category_ru' => $category_ru,
         'category_eng' => $category_eng,
         'title' => 'Добавить лот',
-        'user_name' => $user_name,
     ]);
 }
 

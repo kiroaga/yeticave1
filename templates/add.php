@@ -48,7 +48,7 @@
     <div class="form__item form__item--file">
         <label>Изображение <sup>*</sup></label>
         <div class="form__input-file">
-            <input class="visually-hidden" accept=".jpg, .jpeg, .png" type="file" id="lot-img" value="<?=@$_FILES['image']['name']?>" name="image">
+            <input class="visually-hidden" accept=".jpg, .jpeg, .png" type="file" id="lot-img" name="image">
             <label for="lot-img">
                 Добавить
             </label>

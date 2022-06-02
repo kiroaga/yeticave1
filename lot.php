@@ -31,7 +31,6 @@ description from lot inner join category on lot.id_category = category.id_catego
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => $adv['lot'],
-                'user_name' => $user_name,
                 'user_id'=>$user_id
             ]);
 
@@ -42,7 +41,6 @@ description from lot inner join category on lot.id_category = category.id_catego
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => 'Главная страница',
-                'user_name' => $user_name
                 ]);
         }
     } else {
@@ -51,8 +49,7 @@ description from lot inner join category on lot.id_category = category.id_catego
             'page_content' => $page_content,
             'category_ru' => $category_ru,
             'category_eng' => $category_eng,
-            'title' => 'Главная страница',
-            'user_name' => $user_name]);
+            'title' => 'Главная страница']);
     }
 
 print($layout_content);
